@@ -142,3 +142,8 @@ export  default  {
   },
 }
 </script>
+
+<style scoped>
+@import '../assets/bootstrap.css';
+</style>
+
