@@ -26,7 +26,7 @@
 
         <div v-if="messageError" class="text-center">{{messageError}}</div>
 
-        <show-info v-if="Object.keys(person).length" />
+        <show-info v-if="Object.keys(person).length" :person="person"/>
       </div>
     </div>
   </div>
@@ -57,8 +57,8 @@ export default {
       }
       try {
         const response = await axios.post('https://api.zeye.io/persons/dni-auth', data)
-        this.person = response.data.data
-        // console.log(response)
+        this.person = response.data.data.person
+        // console.log(this.person)
       } catch (error) {
         console.info(error.response.data.message)
         this.messageError = error.response.data.message
@@ -72,7 +72,7 @@ export default {
       this.stepper = 3
 
 
-      console.info('picture', picture)
+      // console.info('picture', picture)
     }
   }
 }

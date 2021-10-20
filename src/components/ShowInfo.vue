@@ -6,7 +6,7 @@
         <div class="author-box-center">
           <img
               alt="image"
-              :src="`${url}/encodings/${person.face_encodings[0].id}/image`"
+              :src="`https://api.zeye.io/persons/${person.id}/photo`"
               class="rounded-circle shadow"
               style="max-width: 220px;"
           />
@@ -32,36 +32,36 @@
           </div>
         </div>
       </div>
-      <div class="card-header">
+      <!-- <div class="card-header">
         <h4>Organización</h4>
-      </div>
+      </div> -->
       <div class="card-body py-0">
         <div>
           <p class="clearfix">
-            <span class="float-left"> Logotipo </span>
+            <!-- <span class="float-left"> Logotipo </span> -->
             <span class="float-right">
               <img
                   alt="image"
-                  :src="`${url}/organizations/${person.organization.id}/logo`"
+                  :src="`https://api.zeye.io/organizations/${person.organization.id}/logo`"
                   class="mr-3"
                   width="120"
               />
             </span>
           </p>
-          <p class="clearfix">
+          <!-- <p class="clearfix">
             <span class="float-left"> Nombre </span>
             <span class="float-right text-muted">
               {{ person.organization.name }}
             </span>
-          </p>
+          </p> -->
           <p class="clearfix">
-            <span class="float-left"> R.I.F. </span>
+            <!-- <span class="float-left"> R.I.F. </span> -->
             <span class="float-right text-muted">
               {{ person.organization.rif }}
             </span>
           </p>
           <p class="clearfix">
-            <span class="float-left"> Descripción </span>
+            <!-- <span class="float-left"> Descripción </span> -->
             <span class="float-right text-muted">
               {{ person.organization.description }}
             </span>
@@ -70,12 +70,12 @@
       </div>
 
       <div class="card-header">
-        <h4>División</h4>
+        <!-- <h4>División</h4> -->
       </div>
       <div class="card-body py-0">
         <div>
           <p class="clearfix">
-            <span class="float-left"> Nombre </span>
+            <!-- <span class="float-left"> Nombre </span> -->
             <span class="float-right text-muted">
               {{ person.division ? person.division.name : "" }}
             </span>
@@ -83,7 +83,7 @@
         </div>
         <div>
           <p class="clearfix">
-            <span class="float-left"> Descripción </span>
+            <!-- <span class="float-left"> Descripción </span> -->
             <span class="float-right text-muted">
               {{ person.division ? person.division.description : "" }}
             </span>
@@ -92,12 +92,12 @@
       </div>
 
       <div class="card-header">
-        <h4>Sucursal</h4>
+        <!-- <h4>Sucursal</h4> -->
       </div>
       <div class="card-body py-0">
         <div>
           <p class="clearfix">
-            <span class="float-left"> Dirección </span>
+            <!-- <span class="float-left"> Dirección </span> -->
             <span class="float-right text-muted">
               {{ person.division ? person.division.subsidiary.address : "" }}
             </span>
@@ -105,7 +105,7 @@
         </div>
         <div>
           <p class="clearfix">
-            <span class="float-left"> Nombre </span>
+            <!-- <span class="float-left"> Nombre </span> -->
             <span class="float-right text-muted">
               {{ person.division ? person.division.subsidiary.name : "" }}
             </span>
@@ -113,7 +113,7 @@
         </div>
         <div>
           <p class="clearfix">
-            <span class="float-left"> Descripción </span>
+            <!-- <span class="float-left"> Descripción </span> -->
             <span class="float-right text-muted">
               {{
                 person.division ? person.division.subsidiary.description : ""
@@ -133,13 +133,10 @@ export  default  {
       type: Object,
       required: true,
     },
-    url: {
-      type: String,
-      required: true,
-    },
   },
   computed: {
     fullName() {
+      console.log(this.person)
       return `${this.person.names} ${this.person.surnames}`;
     },
   },
